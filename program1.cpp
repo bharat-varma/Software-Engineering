@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-
-        int a,n;
+        // test
+         int a,n;
         int k=0,b=1;
         printf ("Enter a: ");
         scanf ("%d", &a);
