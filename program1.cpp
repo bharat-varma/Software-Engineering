@@ -24,7 +24,10 @@ int main() {
         b=b*a;
         printf("\n b is : %d\n", b);
         }
-         
-        printf("\n b is : %d\n", b);
+       gettimeofday(&e, 0);
+       printf("\n b is : %d\n", b);
+       //calculate time taken
+       t=(e.tv_sec + e.tv_usec*0.000001) - (s.tv_sec + s.tv_usec*0.000001);
+         printf("time taken : %f\n", t);
         return 0;
 }
