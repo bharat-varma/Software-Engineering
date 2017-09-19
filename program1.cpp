@@ -11,11 +11,7 @@ int main() {
         int k=0,b=1;
         double t;
         struct timeval s,e;
-        printf ("Enter a: ");
-        scanf ("%d", &a);
-
-        printf ("Enter n: ");
-        scanf ("%d", &n);
+      
         gettimeofday(&s,0);
         // calculate nth power of a
         while (k < n )
