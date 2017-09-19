@@ -8,10 +8,8 @@ using namespace std;
 
 int main() {
        
-        int a;
-        int n;
-        int k=0;
-        int b=1;
+        int a,n;
+        int k=0,b=1;
         double t;
         struct timeval s,e;
         printf("Enter a:");
@@ -19,7 +17,13 @@ int main() {
         printf("Enter n:");
         scanf("%d",&n);
         gettimeofday(&s,0);
-        
+       // calculate nth power of a
+        while (k < n )
+        {
+        k = k+1;
+        b=b*a;
+        printf("\n b is : %d\n", b);
+        }
        gettimeofday(&e, 0);
        printf("\n b is : %d\n", b);
        //calculate time taken
