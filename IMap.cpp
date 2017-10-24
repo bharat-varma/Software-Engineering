@@ -141,6 +141,66 @@ namespace iProlog
 		  IntMap * const vim = vms[i];
 		  vims[i] = vim;
 		}
+		//Main.pp("-------ims=" + Arrays.toString(ims));
+		//Main.pp("-------vims=" + Arrays.toString(vims));
+
+		IntStack * const cs = IntMap::intersect(ims, vims); // $$$ add vmaps here
+		const std::vector<int> is = cs->toArray();
+		for (int i = 0; i < is.size(); i++)
+		{
+		  is[i] = is[i] - 1;
+		}
+		Arrays::sort(is);
+		return is;
+	  }
+
+	  static std::wstring show(std::vector<IMap<int>*> &imaps)
+	  {
+//There is no native C++ equivalent to 'toString':
+		return Arrays->toString(imaps);
+	  }
+
+	  static std::wstring show(std::vector<int> &is)
+	  {
+
+		return Arrays->toString(is);
+	  }
+
+	  /*
+	  public static void main(final String[] args) {
+	    final IMap<Integer>[] imaps = create(3);
+	    put(imaps, 0, 10, 100);
+	    put(imaps, 1, 20, 200);
+	    put(imaps, 2, 30, 777);
+	    put(imaps, 0, 10, 1000);
+	    put(imaps, 1, 20, 777);
+	    put(imaps, 2, 30, 3000);
+	    put(imaps, 0, 10, 777);
+	    put(imaps, 1, 20, 20000);
+	    put(imaps, 2, 30, 30000);
+	    put(imaps, 0, 10, 888);
+	    put(imaps, 1, 20, 888);
+	    put(imaps, 2, 30, 888);
+	    put(imaps, 0, 10, 0);
+	    put(imaps, 1, 20, 0);
+	    put(imaps, 2, 30, 0);
+	    //Main.pp(show(imaps));
+	    //final int[] keys = { 10, 20, 30 };
+	    //Main.pp("get=" + show(get(imaps, keys)));
+	    final IMap<Integer>[] m = create(4);
+	    Engine.put(m, new int[] { -3, -4, 0, 0 }, 0);
+	    Engine.put(m, new int[] { -3, -21, 0, -21 }, 1);
+	    Engine.put(m, new int[] { -19, 0, 0, 0 }, 2);
+	    
+	    final int[] ks = new int[] { -3, -21, -21, 0 };
+	    Main.pp(show(m));
+	    Main.pp("ks=" + Arrays.toString(ks));
+	    
+	    Main.pp("get=" + show(get(m, ks)));
+	  }*/
+
+	};
+}
 
 		
 
