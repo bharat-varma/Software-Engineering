@@ -100,7 +100,7 @@ int IntStack::MINSIZE = 1 << 15;
 
 	std::wstring IntStack::toString()
 	{
-//JAVA TO C++ CONVERTER TODO TASK: There is no native C++ equivalent to 'toString':
+
 	  return Arrays->toString(toArray());
 	}
 }
