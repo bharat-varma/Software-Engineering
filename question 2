@@ -19,7 +19,7 @@ void main()
       char str[100],ch;
       int i=0,pal=0;
       clrscr();
-      if ((file = fopen("words_list.txt", "r")) == NULL)
+      if ((file = fopen("wordslist.txt", "r")) == NULL)
             printf("Error");
       while((ch=fgetc(file))!=EOF)
       {
