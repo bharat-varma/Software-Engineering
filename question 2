@@ -36,7 +36,7 @@ void main()
 
       }
              /* To end the last word */
-      str[--i]='\0';
+      str[i]='\0';
              /* To check the last word */
       if(palindrome(str))
             pal++;
