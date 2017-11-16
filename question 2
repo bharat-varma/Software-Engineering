@@ -16,6 +16,7 @@ int palindrome(char s[])
 void main()
 {
       FILE *file;
+      
       char str[100],ch;
       int i=0,pal=0;
       clrscr();
