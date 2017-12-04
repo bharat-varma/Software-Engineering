@@ -1,0 +1,6 @@
+Create Branch
+git checkout -b palindrome
+
+git add palindrome1
+
+$ git push origin palindrome1.cpp

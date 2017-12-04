@@ -1,32 +1,73 @@
 #include <iostream>
-#include <stdio.h>
-#include <time.h>
-#include <sys/time.h>
+#include <string>
 
 using namespace std;
 
-int main() {
-       
-        int a,n;
-        int k=0,b=1;
-        double t;
-        struct timeval s,e;
-        printf("Enter a:");
-        scanf("%d",&a);
-        printf("Enter n:");
-        scanf("%d",&n);
-        gettimeofday(&s,0);
-       // calculate nth power of a
-        while (k < n )
-        {
-        k = k+1;
-        b=b*a;
-        printf("\n b is : %d\n", b);
-        }
-       gettimeofday(&e, 0);
-       printf("\n The nth [power of a given number is : %d\n", b);
-       //calculate time taken
-       t=(e.tv_sec + e.tv_usec*0.000001) - (s.tv_sec + s.tv_usec*0.000001);
-        printf("time taken : %f\n", t);
-        return 0;
+string removeChar(string);
+bool isPal(string&, int, int);
+
+int main()
+{
+	string testWord;
+	string newWord;
+	int first = 0;
+	int last = string::npos;
+
+	cout << "Palindrome Detection Program" << endl;
+	cout << "Enter a word or sentence, and the program will tell whether or not it is a palindrome." << endl;
+
+	getline(cin, testWord);
+
+	newWord = removeChar(testWord);
+
+	cout << "Your entry " << (isPal(newWord, first, last) ? "is a palindrome." : "is not a palindrome.") << endl;
+	
+
+	cin.get();
+
+	return 0;
+}
+
+string removeChar(string testWord)
+{
+	string newWord;
+
+	for (unsigned int c = 0; c < testWord.length(); c++)
+	{
+		if (isalnum(testWord[c]))
+		{
+			newWord += testWord[c];
+		}
+
+	}
+
+	return newWord;
+}
+
+bool isPal(string& newWord, int first = 0, int last = string::npos)
+{
+
+	if (last == string::npos)
+	{
+		last = (newWord.length()-1);
+	}
+	if (newWord[first] == newWord[last])
+	{
+		if ((first-last) == 0)
+		{
+			return true;
+		}
+		else if (first == (last - 1))
+		{
+			return true;
+		}
+		else
+		{
+			return isPal(newWord, first+1, last-1);
+		}
+	}
+	else
+	{
+		return false;
+	}
 }
