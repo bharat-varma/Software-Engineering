@@ -1,20 +1,45 @@
-package iProlog;
-import java.util.ArrayList;
+#include "ObStack.h"
+#include "Spine.h"
 
-class ObStack<T> extends ArrayList<T> {
+template <class T>
+T ObStack<T>::pop()
+	{
+		T x = v[last];
+		last--;
+		v.pop_back();
+		return x;
+	}
 
-  private static final long serialVersionUID = 1L;
 
-  final T pop() {
-    final int last = this.size() - 1;
-    return this.remove(last);
-  }
+template <class T>
+ObStack<T>::ObStack()
+	{
+		last = -1;
+	}
 
-  final void push(final T O) {
-    add(O);
-  }
+	template <class T>
+	void ObStack<T>::push(T O)
+	{
+		v.push_back(O);
+		last++;
+	}
 
-  final T peek() {
-    return get(this.size() - 1);
-  }
-}
+	template <class T>
+	T ObStack<T>::get(int index)
+	{
+		return v[index];
+	}
+
+	template <class T>
+	T ObStack<T>::peek()
+	{
+		return v[last];
+	}
+
+	template <class T>
+	bool ObStack<T>::isEmpty()
+	{
+		return v.size() == 0;
+	}
+
+template class ObStack<Spine*>;
