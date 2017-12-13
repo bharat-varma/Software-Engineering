@@ -328,6 +328,7 @@ OComplex::OComplex(vector<Object *> v)
 
           // head or body subterm starts here
 
+
  if (1 == w.size()) {
             w = "c:" + w;
           }
