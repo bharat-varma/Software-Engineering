@@ -2,10 +2,6 @@
 
 using namespace std;
 
-  /**
-   * creates a spine - as a snapshot of some runtime elements
-   */
-
 Spine::Spine(vector<int> gs0,  int base, vector<int> gs,  int ttop,  int k, vector<int> cs) {
 //Spine::Spine(int * gs0, int gs_n, int base, vector<int> gs, int ttop, int k, int * cs) {
     hd = gs0[0];
@@ -24,7 +20,23 @@ Spine::Spine(vector<int> gs0,  int base, vector<int> gs,  int ttop,  int k, vect
 
 	this->xs = NULL;//new vector<int>();
   }
+Spine::Spine(int hd, int ttop) {
+    this->hd = hd;
+    base = 0;
+    //gs = IntList.empty;
+    this->ttop = ttop;
 
+    this->xs  = NULL;
+
+    k = -1;
+    //cs = NULL;
+  }
+
+Spine::Spine()
+{
+  //cs = NULL;
+  xs = NULL;
+  k = -1;
   
 }
 
