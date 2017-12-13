@@ -328,7 +328,74 @@ OComplex::OComplex(vector<Object *> v)
 
           // head or body subterm starts here
 
-         
+
+ if (1 == w.size()) {
+            w = "c:" + w;
+          }
+
+          string L = w.substr(2);
+
+          switch (w[0]) {
+            case 'c':
+              cs.push(encode(C, L));
+              k++;
+            break;
+            case 'n':
+              cs.push(encode(N, L));
+              k++;
+            break;
+            case 'v': {
+
+              if(refs.find(L) == refs.end())
+              {
+                my_stack *sp = new my_stack();
+                refs[L] = sp;
+                refs_list.push_back(sp);
+              }
+              refs[L]->push(k);
+              cs.push(tag(BAD, k));
+              k++;
+
+            }
+            break;
+            case 'h': {
+
+
+              if(refs.find(L) == refs.end())
+              {
+                my_stack *sp = new my_stack();
+                refs[L] = sp;
+                refs_list.push_back(sp);
+              }
+              refs[L]->push(k-1);
+
+              cs.c[k - 1] =  tag(A, l - 1);
+              gs.pop();
+
+              //cs.push(tag(BAD, k));
+              //k++;
+
+            }
+            break;
+            default:
+              Mainpp("FORGOTTEN=" + w);
+          } // end subterm
+        } // end element
+      } // end clause
+
+      // linker
+     // Iterator<IntStack> K = refs.values().iterator();
+
+      for(my_stack* Is : refs_list)
+      {
+        // final IntStack Is = K.next();
+
+        // finding the A among refs
+        int leader = -1;
+        for (int j : Is->toArray()) {
+          if (A == tagOf(cs.c[j])) {
+            leader = j;
+       
             break;
           }
         }
