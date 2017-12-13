@@ -1,3 +1,9 @@
+ varma
+
+/* I managed to do both the palindrome and checking the file parts individually but could upload just the palindrome one. I have included
+ the WordCheck part just to show that I did it. I have commented out the code in main so that it doesn't affect output of earlier code
+ Be Kind */ 
+ master
 #include <iostream>
 #include <string>
 
@@ -24,7 +30,13 @@ int main()
 	
 
 	cin.get();
+ varma
 
+
+	
+	/* WordCheck("input.txt", "need"); */
+	
+ master
 	return 0;
 }
 
@@ -70,4 +82,38 @@ bool isPal(string& newWord, int first = 0, int last = string::npos)
 	{
 		return false;
 	}
+ varma
 }
+
+}
+
+bool WordCheck(char* filename, char* search)
+{
+
+/* List of words saved on file named input.txt */
+    int offset; 
+    string line;
+    ifstream Myfile;
+    Myfile.open (filename);
+
+    if(Myfile.is_open())
+    {
+        while(!Myfile.eof())
+        {
+            getline(Myfile,line);
+            if ((offset = line.find(search, 0)) != string::npos) 
+            {
+             cout << "Word found in list '" << search << " \n\n"<< line  <<endl;
+             return true;
+            }
+           
+        }
+        Myfile.close();
+    }
+    else
+    cout<<"Unable to open this file."<<endl;
+
+    return false;
+}
+
+ master
